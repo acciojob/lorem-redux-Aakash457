@@ -1,14 +1,8 @@
-
 import React from "react";
-import './../styles/App.css';
 import Lorem from "./Lorem";
 
-const App = () => {
-  return (
-    <div>
-        <Lorem />
-    </div>
-  )
+function App() {
+  return <Lorem />;
 }
 
-export default App
+export default App;

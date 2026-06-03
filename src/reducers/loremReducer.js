@@ -6,35 +6,26 @@ import {
 
 const initialState = {
   loading: false,
-  data: null,
-  error: "",
+  posts: []
 };
 
-const loremReducer = (state = initialState, action) => {
+function loremReducer(state = initialState, action) {
   switch (action.type) {
-    case FETCH_LOREM_REQUEST:
+    case "FETCH_REQUEST":
       return {
         ...state,
-        loading: true,
+        loading: true
       };
 
-    case FETCH_LOREM_SUCCESS:
+    case "FETCH_SUCCESS":
       return {
         loading: false,
-        data: action.payload,
-        error: "",
-      };
-
-    case FETCH_LOREM_FAILURE:
-      return {
-        loading: false,
-        data: null,
-        error: action.payload,
+        posts: action.payload
       };
 
     default:
       return state;
   }
-};
+}
 
 export default loremReducer;

@@ -5,9 +5,7 @@ import { fetchLorem } from "../actions/loremActions";
 function Lorem() {
   const dispatch = useDispatch();
 
-  const { loading, data, error } = useSelector(
-    (state) => state
-  );
+  const { loading, posts } = useSelector((state) => state);
 
   useEffect(() => {
     dispatch(fetchLorem());
@@ -17,14 +15,28 @@ function Lorem() {
     return <h2>Loading...</h2>;
   }
 
-  if (error) {
-    return <h2>{error}</h2>;
-  }
-
   return (
     <div>
-      <h1>{data?.title}</h1>
-      <p>{data?.body}</p>
+      <h1>A short Naration of Lorem Ipsum</h1>
+
+      <p>
+        Below Contains A title and Body gotten from a random API, Please take
+        your time to Review
+      </p>
+
+      <ul>
+        {posts.map((post) => (
+          <li key={post.id}>
+            <p>
+              <b>Title</b> {post.title}
+            </p>
+
+            <p>
+              <b>Body</b> {post.body}
+            </p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

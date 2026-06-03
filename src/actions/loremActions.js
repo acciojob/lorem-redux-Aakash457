@@ -4,22 +4,20 @@ export const FETCH_LOREM_FAILURE = "FETCH_LOREM_FAILURE";
 
 export const fetchLorem = () => {
   return function (dispatch) {
-    dispatch({ type: FETCH_LOREM_REQUEST });
+    dispatch({ type: "FETCH_REQUEST" });
 
-    fetch("https://api.lorem.com/ipsum")
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then((response) => response.json())
+      .then((data) => {
         dispatch({
-          type: FETCH_LOREM_SUCCESS,
-          payload: data,
+          type: "FETCH_SUCCESS",
+          payload: data.slice(0, 6)
         });
       })
-      .catch(function (error) {
+      .catch(() => {
         dispatch({
-          type: FETCH_LOREM_FAILURE,
-          payload: error.message,
+          type: "FETCH_SUCCESS",
+          payload: []
         });
       });
   };
