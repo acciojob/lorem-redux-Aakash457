@@ -19,24 +19,28 @@ function Lorem() {
     <div>
       <h1>A short Naration of Lorem Ipsum</h1>
 
-      <p>
+      <h4>
         Below Contains A title and Body gotten from a random API, Please take
         your time to Review
-      </p>
+      </h4>
 
-      <ul>
-        {posts.map((post) => (
-          <li key={post.id}>
-            <p>
-              <b>Title</b> {post.title}
-            </p>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <ul>
+          {posts.map((post) => (
+            <li key={post.id}>
+              <p>
+                <strong>Title</strong> {post.title}
+              </p>
 
-            <p>
-              <b>Body</b> {post.body}
-            </p>
-          </li>
-        ))}
-      </ul>
+              <p>
+                <strong>Body</strong> {post.body}
+              </p>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
