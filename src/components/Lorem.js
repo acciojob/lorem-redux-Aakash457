@@ -19,7 +19,7 @@ function Lorem() {
       </h4>
 
       {loading ? (
-        <p className="loading">Loading...</p>
+        <div className="loading">Loading...</div>
       ) : (
         <ul>
           {posts.map((post) => (
