@@ -6,21 +6,19 @@ export const fetchLorem = () => {
   return (dispatch) => {
     dispatch({ type: FETCH_LOREM_REQUEST });
 
-    setTimeout(() => {
-      fetch("https://jsonplaceholder.typicode.com/posts")
-        .then((res) => res.json())
-        .then((data) => {
-          dispatch({
-            type: FETCH_LOREM_SUCCESS,
-            payload: data,
-          });
-        })
-        .catch((error) => {
-          dispatch({
-            type: FETCH_LOREM_FAILURE,
-            payload: error.message,
-          });
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch({
+          type: FETCH_LOREM_SUCCESS,
+          payload: data,
         });
-    }, 1000);
+      })
+      .catch((error) => {
+        dispatch({
+          type: FETCH_LOREM_FAILURE,
+          payload: error.message,
+        });
+      });
   };
 };

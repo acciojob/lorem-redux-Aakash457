@@ -11,6 +11,10 @@ function Lorem() {
     dispatch(fetchLorem());
   }, [dispatch]);
 
+  if (loading) {
+    return <h4>Loading...</h4>;
+  }
+
   return (
     <div>
       <h1>A short Naration of Lorem Ipsum</h1>
@@ -20,18 +24,19 @@ function Lorem() {
         your time to Review
       </h4>
 
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        <ul>
-          {posts.map((post) => (
-            <li key={post.id}>
-              <p>Title {post.title}</p>
-              <p>Body {post.body}</p>
-            </li>
-          ))}
-        </ul>
-      )}
+      <ul>
+        {posts.map((post) => (
+          <li key={post.id}>
+            <p>
+              <strong>Title</strong> {post.title}
+            </p>
+
+            <p>
+              <strong>Body</strong> {post.body}
+            </p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
