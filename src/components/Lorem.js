@@ -11,32 +11,27 @@ function Lorem() {
     dispatch(fetchLorem());
   }, [dispatch]);
 
-  if (loading) {
-    return <h4>Loading...</h4>;
-  }
-
   return (
     <div>
       <h1>A short Naration of Lorem Ipsum</h1>
 
       <h4>
-        Below Contains A title and Body gotten froma random API, Please take
-        your time to Review
+        Below Contains A title and Body gotten froma random API, Please take your
+        time to Review
       </h4>
 
-      <ul>
-        {posts.map((post) => (
-          <li key={post.id}>
-            <p>
-              <strong>Title</strong> {post.title}
-            </p>
-
-            <p>
-              <strong>Body</strong> {post.body}
-            </p>
-          </li>
-        ))}
-      </ul>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <ul>
+          {posts.map((post) => (
+            <li key={post.id}>
+              <p className="title">{post.title}</p>
+              <p className="body">{post.body}</p>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
