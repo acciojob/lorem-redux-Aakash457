@@ -14,7 +14,7 @@ export const fetchLorem = () => {
             type: FETCH_LOREM_SUCCESS,
             payload: data,
           });
-        }, 5000);
+        }, 3000);
       })
       .catch((error) => {
         dispatch({
