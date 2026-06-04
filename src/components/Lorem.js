@@ -27,7 +27,7 @@ function Lorem() {
           {posts.map((post) => (
             <li key={post.id}>
               <p className="title">Title :{post.title}</p>
-              <p className="body">{post.body}</p>
+              <p className="body">Body :{post.body}</p>
             </li>
           ))}
         </ul>
