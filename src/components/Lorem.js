@@ -4,7 +4,6 @@ import { fetchLorem } from "../actions/loremActions";
 
 function Lorem() {
   const dispatch = useDispatch();
-
   const { loading, posts } = useSelector((state) => state);
 
   useEffect(() => {
@@ -14,19 +13,20 @@ function Lorem() {
   return (
     <div>
       <h1>A short Naration of Lorem Ipsum</h1>
-
       <h4>
-        Below Contains A title and Body gotten froma random API, Please take your
-        time to Review
+        Below Contains A title and Body gotten froma random API, Please take
+        your time to Review
       </h4>
 
       {loading ? (
-        <p>Loading...</p>
+        <div className="loading">
+          <p>Loading...</p>
+        </div>
       ) : (
         <ul>
           {posts.map((post) => (
             <li key={post.id}>
-              <p className="title">{post.title}</p>
+              <p className="title">Title :{post.title}</p>
               <p className="body">{post.body}</p>
             </li>
           ))}
