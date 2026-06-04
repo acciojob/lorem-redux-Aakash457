@@ -4,34 +4,33 @@ import { fetchLorem } from "../actions/loremActions";
 
 function Lorem() {
   const dispatch = useDispatch();
-
   const { loading, posts } = useSelector((state) => state);
 
   useEffect(() => {
     dispatch(fetchLorem());
   }, [dispatch]);
 
+  const post = posts[0];
+
   return (
     <div>
       <h1>A short Naration of Lorem Ipsum</h1>
-
       <h4>
         Below Contains A title and Body gotten froma random API, Please take
         your time to Review
       </h4>
 
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        <ul>
-          {posts.map((post) => (
-            <li key={post.id}>
-              <p>Title {post.title}</p>
-              <p>Body {post.body}</p>
-            </li>
-          ))}
-        </ul>
-      )}
+      <ul>
+        <li>
+          <p id="1" className="id">{post ? post.id : ""}</p>
+          <p className="title">
+            {loading || !post ? "Title :Loading tiltes" : `Title :${post.title}`}
+          </p>
+          <p className="body">
+            {loading || !post ? "Body :Loading Body" : `Body :${post.body}`}
+          </p>
+        </li>
+      </ul>
     </div>
   );
 }
