@@ -18,8 +18,8 @@ function Lorem() {
         your time to Review
       </h4>
 
-      {loading ? (
-        <div className="loading">Loading...</div>
+      {loading || posts.length === 0 ? (
+        <p className="loading">Loading...</p>
       ) : (
         <ul>
           {posts.map((post) => (
