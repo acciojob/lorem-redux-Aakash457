@@ -20,16 +20,16 @@ function Lorem() {
         your time to Review
       </h4>
 
-      {loading || !post ? (
-        <p className="loading">Loading...</p>
-      ) : (
-        <ul>
-          <li key={post.id}>
-            <p className="title">Title :{post.title}</p>
-            <p className="body">Body :{post.body}</p>
-          </li>
-        </ul>
-      )}
+      <ul>
+        <li>
+          <p className="title">
+            {loading || !post ? "Title :Loading tiltes" : `Title :${post.title}`}
+          </p>
+          <p className="body">
+            {loading || !post ? "Body :Loading body" : `Body :${post.body}`}
+          </p>
+        </li>
+      </ul>
     </div>
   );
 }
