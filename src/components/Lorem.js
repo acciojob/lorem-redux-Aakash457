@@ -22,15 +22,9 @@ function Lorem() {
 
       <ul>
         <li>
-          {!loading && post && (
-            <p id={"" + post.id} className="id">
-              {post.id}
-            </p>
-          )}
+          <p className="id">{post ? post.id : ""}</p>
           <p className="title">
-            {loading || !post
-              ? "Title :Loading tiltes"
-              : `Title :${post.title}`}
+            {loading || !post ? "Title :Loading tiltes" : `Title :${post.title}`}
           </p>
           <p className="body">
             {loading || !post ? "Body :Loading Body" : `Body :${post.body}`}
