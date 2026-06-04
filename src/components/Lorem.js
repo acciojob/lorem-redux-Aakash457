@@ -11,10 +11,6 @@ function Lorem() {
     dispatch(fetchLorem());
   }, [dispatch]);
 
-  if (loading) {
-    return <h2>Loading...</h2>;
-  }
-
   return (
     <div>
       <h1>A short Naration of Lorem Ipsum</h1>
@@ -30,13 +26,8 @@ function Lorem() {
         <ul>
           {posts.map((post) => (
             <li key={post.id}>
-              <p>
-                <strong>Title</strong> {post.title}
-              </p>
-
-              <p>
-                <strong>Body</strong> {post.body}
-              </p>
+              <p>Title {post.title}</p>
+              <p>Body {post.body}</p>
             </li>
           ))}
         </ul>
